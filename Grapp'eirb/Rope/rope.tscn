@@ -1,0 +1,34 @@
+[gd_scene load_steps=5 format=3 uid="uid://ma61yetr7skv"]
+
+[ext_resource type="Texture2D" uid="uid://css6id3ov01yq" path="res://Grapp'eirb/Assets/Sprite/rope.png" id="1_dtg8k"]
+[ext_resource type="Script" path="res://Grapp'eirb/Rope/rope.gd" id="1_jfi76"]
+[ext_resource type="Texture2D" uid="uid://0yaje2st1txl" path="res://Grapp'eirb/Assets/Sprite/rope_highlight.png" id="3_b6hd2"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7p2rm"]
+size = Vector2(16, 4)
+
+[node name="rope" type="RigidBody2D"]
+z_index = 15
+collision_layer = 2
+collision_mask = 4
+mass = 15.0
+script = ExtResource("1_jfi76")
+
+[node name="Normal" type="Sprite2D" parent="."]
+texture_filter = 1
+texture_repeat = 2
+position = Vector2(-8, -5)
+scale = Vector2(0.996723, 1.08111)
+texture = ExtResource("1_dtg8k")
+centered = false
+region_enabled = true
+region_rect = Rect2(0, 0, 16, 8)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_7p2rm")
+
+[node name="Highlight" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(1, -1)
+scale = Vector2(1.91585, 0.895277)
+texture = ExtResource("3_b6hd2")

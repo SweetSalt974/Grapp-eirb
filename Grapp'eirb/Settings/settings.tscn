@@ -1,0 +1,77 @@
+[gd_scene load_steps=4 format=3 uid="uid://bfkmc7t81exw6"]
+
+[ext_resource type="FontFile" uid="uid://b3dp20tp1u08a" path="res://font/Alegreya-Black.ttf" id="2_tispb"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_q1wxg"]
+font = ExtResource("2_tispb")
+font_size = 22
+outline_size = 4
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_wc8d2"]
+line_spacing = 0.0
+font = ExtResource("2_tispb")
+font_size = 15
+outline_size = 2
+outline_color = Color(0, 0, 0, 1)
+
+[node name="settings" type="Node2D"]
+visible = false
+scale = Vector2(2, 2)
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+metadata/_edit_use_anchors_ = true
+
+[node name="ColorRect" type="ColorRect" parent="Control"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -3.275
+anchor_top = -1.525
+anchor_right = -0.1
+anchor_bottom = 0.425
+offset_right = 369.0
+offset_bottom = 207.0
+color = Color(0.517647, 0.533333, 0.686275, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="Label" type="Label" parent="Control"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -2.5
+anchor_top = -1.4625
+anchor_right = -2.5
+anchor_bottom = -1.4625
+offset_left = 9.0
+offset_right = 126.0
+offset_bottom = 34.0
+text = "Contrôles :
+"
+label_settings = SubResource("LabelSettings_q1wxg")
+metadata/_edit_use_anchors_ = true
+
+[node name="Description" type="Label" parent="Control"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -2.175
+anchor_top = -1.525
+anchor_right = -2.175
+anchor_bottom = -0.975
+offset_left = 12.0
+offset_top = 30.0
+offset_right = 383.0
+offset_bottom = 208.0
+text = "Q et D : déplacement  
+Z : Se suspend à la corde (Angle < 45°) 
+Espace (Charger sur corde) : sauter (Charge un dash 
+sur corde) 
+Clic Gauche : Dash sur mousqueton
+R : Reset l'écran
+Entrer : Recommence le niveau
+T : Retourne à l'écran de selection de niveau
+"
+label_settings = SubResource("LabelSettings_wc8d2")
+metadata/_edit_use_anchors_ = true

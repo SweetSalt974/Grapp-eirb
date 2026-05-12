@@ -1,0 +1,104 @@
+[gd_scene load_steps=11 format=3 uid="uid://dd02c5opp53f2"]
+
+[ext_resource type="Script" path="res://Grapp'eirb/Musket/musket.gd" id="1_fal1k"]
+[ext_resource type="PackedScene" uid="uid://dbs3qtx8b4xsh" path="res://Grapp'eirb/Rope/hook.tscn" id="1_ffbyj"]
+[ext_resource type="Texture2D" uid="uid://bwpkhbjwnraq2" path="res://Grapp'eirb/Assets/Sprite/musk.png" id="3_h40ax"]
+[ext_resource type="Texture2D" uid="uid://cub1txlhyvgfn" path="res://Grapp'eirb/Assets/Sprite/outline.png" id="4_2uicd"]
+[ext_resource type="Texture2D" uid="uid://css6id3ov01yq" path="res://Grapp'eirb/Assets/Sprite/rope.png" id="5_bwwwu"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_8pdfx"]
+radius = 8.66667
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_vt57m"]
+radius = 81.0987
+
+[sub_resource type="Animation" id="Animation_8jqpf"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_7bmw8"]
+resource_name = "spinning"
+length = 0.9
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [0, 1, 2]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_oio2s"]
+_data = {
+"RESET": SubResource("Animation_8jqpf"),
+"spinning": SubResource("Animation_7bmw8")
+}
+
+[node name="Musket with hooks" type="Node2D"]
+script = ExtResource("1_fal1k")
+
+[node name="hook" parent="." instance=ExtResource("1_ffbyj")]
+visible = false
+
+[node name="Line2D" type="Line2D" parent="."]
+texture_filter = 1
+texture_repeat = 2
+scale = Vector2(1.5, 1.5)
+width = 6.0
+texture = ExtResource("5_bwwwu")
+texture_mode = 1
+
+[node name="musket" type="Node2D" parent="."]
+
+[node name="musk" type="Sprite2D" parent="musket"]
+modulate = Color(1, 0.4, 1, 1)
+texture = ExtResource("3_h40ax")
+
+[node name="outline" type="Sprite2D" parent="musket"]
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("4_2uicd")
+hframes = 3
+
+[node name="detection" type="Area2D" parent="musket"]
+scale = Vector2(1.5, 1.5)
+collision_layer = 8
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="musket/detection"]
+shape = SubResource("CircleShape2D_8pdfx")
+
+[node name="visibility" type="Area2D" parent="musket"]
+visible = false
+collision_layer = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="musket/visibility"]
+visible = false
+shape = SubResource("CircleShape2D_vt57m")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="musket"]
+root_node = NodePath("../outline")
+libraries = {
+"": SubResource("AnimationLibrary_oio2s")
+}
+
+[connection signal="mouse_entered" from="musket/detection" to="." method="_on_detection_mouse_entered"]
+[connection signal="mouse_entered" from="musket/detection" to="musket" method="_on_detection_mouse_entered" flags=18]
+[connection signal="body_entered" from="musket/visibility" to="." method="_on_visibility_body_entered"]
+[connection signal="body_entered" from="musket/visibility" to="musket" method="_on_visibility_body_entered" flags=18]
+[connection signal="body_exited" from="musket/visibility" to="." method="_on_visibility_body_exited"]
+[connection signal="body_exited" from="musket/visibility" to="musket" method="_on_visibility_body_exited" flags=18]

@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://dbs3qtx8b4xsh"]
+
+[ext_resource type="Texture2D" uid="uid://dm6h4myhs5mp8" path="res://Grapp'eirb/Assets/Sprite/hook.png" id="1_m5fj4"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_xdqb4"]
+radius = 2.23607
+
+[node name="hook" type="StaticBody2D"]
+position = Vector2(0, 1)
+collision_layer = 16
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_m5fj4")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_xdqb4")

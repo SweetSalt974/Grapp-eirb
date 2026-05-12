@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://ejtwd466n5nn"]
+
+[ext_resource type="Texture2D" uid="uid://dv7des23k1dgb" path="res://Grapp'eirb/Assets/Sprite/boulder.png" id="1_2bjam"]
+[ext_resource type="Script" path="res://Grapp'eirb/Level/boulder.gd" id="1_pq1a1"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_uq5nl"]
+size = Vector2(12, 13.5)
+
+[node name="Boulder" type="Node2D"]
+script = ExtResource("1_pq1a1")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_2bjam")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(0, -0.75)
+shape = SubResource("RectangleShape2D_uq5nl")

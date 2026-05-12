@@ -1,0 +1,87 @@
+[gd_scene load_steps=9 format=3 uid="uid://dftmvymt3f18"]
+
+[ext_resource type="Script" path="res://Grapp'eirb/Musket/musket.gd" id="1_alhxp"]
+[ext_resource type="Texture2D" uid="uid://bwpkhbjwnraq2" path="res://Grapp'eirb/Assets/Sprite/musk.png" id="2_dijo8"]
+[ext_resource type="Texture2D" uid="uid://cub1txlhyvgfn" path="res://Grapp'eirb/Assets/Sprite/outline.png" id="3_x61gs"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_8pdfx"]
+radius = 11.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_vt57m"]
+radius = 81.0987
+
+[sub_resource type="Animation" id="Animation_8jqpf"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_7bmw8"]
+resource_name = "spinning"
+length = 0.9
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [0, 1, 2]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_oio2s"]
+_data = {
+"RESET": SubResource("Animation_8jqpf"),
+"spinning": SubResource("Animation_7bmw8")
+}
+
+[node name="musket" type="Node2D"]
+script = ExtResource("1_alhxp")
+
+[node name="musk" type="Sprite2D" parent="."]
+modulate = Color(1, 0.4, 1, 1)
+texture = ExtResource("2_dijo8")
+
+[node name="outline" type="Sprite2D" parent="."]
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("3_x61gs")
+hframes = 3
+
+[node name="detection" type="Area2D" parent="."]
+scale = Vector2(1.5, 1.5)
+collision_layer = 8
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="detection"]
+shape = SubResource("CircleShape2D_8pdfx")
+
+[node name="visibility" type="Area2D" parent="."]
+visible = false
+collision_layer = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="visibility"]
+visible = false
+shape = SubResource("CircleShape2D_vt57m")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+root_node = NodePath("../outline")
+libraries = {
+"": SubResource("AnimationLibrary_oio2s")
+}
+
+[connection signal="mouse_entered" from="detection" to="." method="_on_detection_mouse_entered"]
+[connection signal="mouse_exited" from="detection" to="." method="_on_detection_mouse_exited"]
+[connection signal="body_entered" from="visibility" to="." method="_on_visibility_body_entered"]
+[connection signal="body_exited" from="visibility" to="." method="_on_visibility_body_exited"]

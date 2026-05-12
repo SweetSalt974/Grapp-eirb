@@ -1,0 +1,21 @@
+[gd_scene load_steps=5 format=3 uid="uid://dmboe01mvciv2"]
+
+[ext_resource type="Script" path="res://Grapp'eirb/Level/Cake.gd" id="1_novus"]
+[ext_resource type="Texture2D" uid="uid://brhkuotth55xm" path="res://Grapp'eirb/Assets/Sprite/Gateau.png" id="1_vu5yp"]
+[ext_resource type="PackedScene" uid="uid://dc15a62uwapn8" path="res://Grapp'eirb/Level/particleCake.tscn" id="3_38xqt"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_phdve"]
+
+[node name="Cake" type="Area2D"]
+collision_layer = 0
+script = ExtResource("1_novus")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_phdve")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_vu5yp")
+
+[node name="particleCake" parent="." instance=ExtResource("3_38xqt")]
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

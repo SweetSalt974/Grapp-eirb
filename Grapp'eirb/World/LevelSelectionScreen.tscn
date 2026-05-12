@@ -1,0 +1,91 @@
+[gd_scene load_steps=6 format=3 uid="uid://b8tb4mm7iqnys"]
+
+[ext_resource type="Texture2D" uid="uid://b42x2mx17ey13" path="res://Grapp'eirb/Assets/Sprite/LevelHighlight.png" id="1_35dnh"]
+[ext_resource type="Script" path="res://Grapp'eirb/World/LevelSelectionScreen.gd" id="1_83go8"]
+[ext_resource type="FontFile" uid="uid://b3dp20tp1u08a" path="res://font/Alegreya-Black.ttf" id="1_g0sin"]
+[ext_resource type="AudioStream" uid="uid://dmvy0ugol7i4j" path="res://Grapp'eirb/Audio/menuSong.mp3" id="4_mnien"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_llad5"]
+font = ExtResource("1_g0sin")
+outline_size = 2
+outline_color = Color(0, 0, 0, 1)
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource("1_83go8")
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_top = -38.0
+offset_right = 40.0
+offset_bottom = 2.0
+metadata/_edit_use_anchors_ = true
+
+[node name="ColorRect" type="ColorRect" parent="Control"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -8.0
+anchor_top = -3.925
+anchor_right = -0.225
+anchor_bottom = 0.325
+offset_right = 369.0
+offset_bottom = 207.0
+color = Color(0.254902, 0.231373, 0.376471, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="Levels" type="Label" parent="Control"]
+layout_mode = 0
+offset_left = -107.0
+offset_top = -33.0
+offset_right = -27.0
+offset_bottom = 17.0
+text = "Niveaux :"
+label_settings = SubResource("LabelSettings_llad5")
+
+[node name="Level1" type="Label" parent="Control"]
+layout_mode = 0
+offset_left = -50.0
+offset_top = -4.0
+offset_right = 30.0
+offset_bottom = 46.0
+text = "- Level 1"
+label_settings = SubResource("LabelSettings_llad5")
+
+[node name="Level2" type="Label" parent="Control"]
+layout_mode = 0
+offset_left = -51.0
+offset_top = 22.0
+offset_right = 29.0
+offset_bottom = 72.0
+text = "- Level 2"
+label_settings = SubResource("LabelSettings_llad5")
+
+[node name="Level3" type="Label" parent="Control"]
+layout_mode = 0
+offset_left = -50.0
+offset_top = 48.0
+offset_right = 30.0
+offset_bottom = 98.0
+text = "- Level 3 (Non fini)"
+label_settings = SubResource("LabelSettings_llad5")
+
+[node name="Level4" type="Label" parent="Control"]
+layout_mode = 0
+offset_left = -50.0
+offset_top = 74.0
+offset_right = 30.0
+offset_bottom = 124.0
+text = "- Level 4 (Non fini)"
+label_settings = SubResource("LabelSettings_llad5")
+
+[node name="LevelHighlight" type="Sprite2D" parent="."]
+position = Vector2(-10, -31)
+scale = Vector2(1.77717, -0.993749)
+texture = ExtResource("1_35dnh")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+scale = Vector2(1, 0.535021)
+zoom = Vector2(7, 7)
+
+[node name="menuMusic" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_mnien")

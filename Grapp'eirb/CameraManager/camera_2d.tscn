@@ -1,0 +1,136 @@
+[gd_scene load_steps=6 format=3 uid="uid://ba8o717gs15dd"]
+
+[ext_resource type="Script" path="res://Grapp'eirb/CameraManager/camera_2d.gd" id="1_wl1cl"]
+[ext_resource type="FontFile" uid="uid://b3dp20tp1u08a" path="res://font/Alegreya-Black.ttf" id="2_vdj10"]
+[ext_resource type="Script" path="res://Grapp'eirb/World/FPS_COUNTER.gd" id="4_bc0uk"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_q1wxg"]
+font = ExtResource("2_vdj10")
+font_size = 22
+outline_size = 4
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_wc8d2"]
+line_spacing = 0.0
+font = ExtResource("2_vdj10")
+font_size = 15
+outline_size = 2
+outline_color = Color(0, 0, 0, 1)
+
+[node name="Camera2D" type="Camera2D"]
+zoom = Vector2(3, 3)
+script = ExtResource("1_wl1cl")
+
+[node name="settings" type="Node2D" parent="."]
+visible = false
+top_level = true
+z_index = 10
+position = Vector2(-567, 25)
+scale = Vector2(3, 3)
+
+[node name="Control" type="Control" parent="settings"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+metadata/_edit_use_anchors_ = true
+
+[node name="ColorRect" type="ColorRect" parent="settings/Control"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -3.275
+anchor_top = -1.525
+anchor_right = -0.1
+anchor_bottom = 0.425
+offset_right = 369.0
+offset_bottom = 207.0
+color = Color(0.145098, 0.152941, 0.227451, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="Label" type="Label" parent="settings/Control"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -2.5
+anchor_top = -1.4625
+anchor_right = -2.5
+anchor_bottom = -1.4625
+offset_left = 9.0
+offset_right = 126.0
+offset_bottom = 34.0
+text = "Contrôles :
+"
+label_settings = SubResource("LabelSettings_q1wxg")
+metadata/_edit_use_anchors_ = true
+
+[node name="Description" type="Label" parent="settings/Control"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -2.175
+anchor_top = -1.525
+anchor_right = -2.175
+anchor_bottom = -0.975
+offset_left = 12.0
+offset_top = 30.0
+offset_right = 383.0
+offset_bottom = 208.0
+text = "Q et D : déplacement  
+Z : Se suspend à la corde (Angle < 45°) 
+Espace (Charger sur corde) : sauter (Charge un dash 
+sur corde) 
+Clic Gauche : Dash sur mousqueton
+R : Reset l'écran
+Entrer : Recommence le niveau
+T : Retourne à l'écran de selection de niveau
+"
+label_settings = SubResource("LabelSettings_wc8d2")
+metadata/_edit_use_anchors_ = true
+
+[node name="respawn" type="Node2D" parent="."]
+visible = false
+top_level = true
+z_index = 10
+position = Vector2(-567, 22)
+scale = Vector2(3, 3)
+
+[node name="Control" type="Control" parent="respawn"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+metadata/_edit_use_anchors_ = true
+
+[node name="ColorRect" type="ColorRect" parent="respawn/Control"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -3.275
+anchor_top = -1.525
+anchor_right = -0.1
+anchor_bottom = 0.425
+offset_right = 369.0
+offset_bottom = 207.0
+color = Color(0.145098, 0.152941, 0.227451, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="Label" type="Label" parent="respawn/Control"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 1.075
+anchor_right = 1.0
+anchor_bottom = 1.075
+offset_left = 9.0
+offset_right = 126.0
+offset_bottom = 34.0
+text = "Respawning ...
+"
+label_settings = SubResource("LabelSettings_q1wxg")
+metadata/_edit_use_anchors_ = true
+
+[node name="FPS_COUNTER" type="Label" parent="."]
+visible = false
+offset_left = -304.0
+offset_top = -128.0
+offset_right = -240.0
+offset_bottom = -97.0
+text = "FPS = "
+script = ExtResource("4_bc0uk")

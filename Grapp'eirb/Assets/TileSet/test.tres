@@ -1,0 +1,24 @@
+[gd_resource type="TileSet" load_steps=5 format=3 uid="uid://fius0aiqyhst"]
+
+[ext_resource type="Texture2D" uid="uid://dwkkcdnvo6gx3" path="res://Assets/Sprite/BlocTest.png" id="1_h8t7h"]
+
+[sub_resource type="TileMapPattern" id="TileMapPattern_wknlp"]
+tile_data = PackedInt32Array(0, 0, 0, 65536, 0, 0, 1, 0, 0, 65537, 0, 0, 2, 0, 0, 65538, 0, 0, 3, 0, 0, 65539, 0, 0, 4, 0, 0, 65540, 0, 0, 5, 0, 0, 65541, 0, 0, 6, 0, 0, 65542, 0, 0, 7, 0, 0, 65543, 0, 0, 8, 0, 0, 65544, 0, 0, 9, 0, 0, 65545, 0, 0, 10, 0, 0, 65546, 0, 0, 11, 0, 0, 65547, 0, 0, 12, 0, 0, 65548, 0, 0, 13, 0, 0, 65549, 0, 0, 14, 0, 0, 65550, 0, 0, 15, 0, 0, 65551, 0, 0)
+
+[sub_resource type="TileMapPattern" id="TileMapPattern_3y03i"]
+tile_data = PackedInt32Array(0, 0, 0, 65536, 0, 0, 131072, 0, 0, 196608, 0, 0, 262144, 0, 0, 327680, 0, 0, 393216, 0, 0, 458752, 0, 0, 524288, 0, 0, 589824, 0, 0, 655360, 0, 0, 720896, 0, 0, 786432, 0, 0, 851968, 0, 0, 917504, 0, 0, 983040, 0, 0, 1048576, 0, 0, 1114112, 0, 0, 1179648, 0, 0, 1, 0, 0, 65537, 0, 0, 131073, 0, 0, 196609, 0, 0, 262145, 0, 0, 327681, 0, 0, 393217, 0, 0, 458753, 0, 0, 524289, 0, 0, 589825, 0, 0, 655361, 0, 0, 720897, 0, 0, 786433, 0, 0, 851969, 0, 0, 917505, 0, 0, 983041, 0, 0, 1048577, 0, 0, 1114113, 0, 0, 1179649, 0, 0)
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_n1ghp"]
+texture = ExtResource("1_h8t7h")
+texture_region_size = Vector2i(8, 8)
+0:0/0 = 0
+0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+0:0/0/physics_layer_0/angular_velocity = 0.0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-4, -4, 4, -4, 4, 4, -4, 4)
+
+[resource]
+tile_size = Vector2i(8, 8)
+physics_layer_0/collision_layer = 4
+sources/0 = SubResource("TileSetAtlasSource_n1ghp")
+pattern_0 = SubResource("TileMapPattern_wknlp")
+pattern_1 = SubResource("TileMapPattern_3y03i")

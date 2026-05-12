@@ -1,0 +1,27 @@
+[gd_scene load_steps=4 format=3 uid="uid://cxfcn4woxvrko"]
+
+[ext_resource type="Texture2D" uid="uid://d4jp1ku3uftqv" path="res://Grapp'eirb/Assets/Sprite/snow2.png" id="1_lmbp5"]
+[ext_resource type="Script" path="res://Grapp'eirb/Character/run_particle.gd" id="2_337wd"]
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_s43l1"]
+emission_shape = 1
+emission_sphere_radius = 1.0
+particle_flag_disable_z = true
+gravity = Vector3(45, 98, 0)
+initial_velocity_min = 50.0
+initial_velocity_max = 50.0
+orbit_velocity_min = 0.0
+orbit_velocity_max = 0.0
+linear_accel_max = 1.0
+tangential_accel_min = 15.0
+tangential_accel_max = 15.0
+angle_max = 2.0
+scale_min = 0.3
+
+[node name="runParticle" type="GPUParticles2D"]
+amount = 25
+process_material = SubResource("ParticleProcessMaterial_s43l1")
+texture = ExtResource("1_lmbp5")
+lifetime = 0.5
+interpolate = false
+script = ExtResource("2_337wd")

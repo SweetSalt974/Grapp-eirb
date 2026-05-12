@@ -1,0 +1,43 @@
+[gd_scene load_steps=3 format=3 uid="uid://cuyp82baig4ty"]
+
+[ext_resource type="Texture2D" uid="uid://6gflh8gjgjdv" path="res://assets/sprite/background.png" id="1_133gu"]
+[ext_resource type="Script" path="res://Borne d'arcade/Main_scene.gd" id="1_s4khn"]
+
+[node name="Main_scene" type="Node2D"]
+script = ExtResource("1_s4khn")
+
+[node name="Background" type="Sprite2D" parent="."]
+scale = Vector2(2, 2)
+texture = ExtResource("1_133gu")
+
+[node name="Camera2D" type="Camera2D" parent="Background"]
+zoom = Vector2(5, 5)
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_left = -104.0
+offset_top = -2.0
+offset_right = 112.0
+offset_bottom = 65.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.004
+anchor_right = 0.004
+offset_left = 0.08
+offset_top = -1.0
+offset_right = 230.08
+offset_bottom = 128.0
+
+[node name="Start" type="Button" parent="Control/VBoxContainer"]
+layout_mode = 2
+text = "Start"
+
+[node name="Quit" type="Button" parent="Control/VBoxContainer"]
+layout_mode = 2
+text = "Quit"
+
+[connection signal="pressed" from="Control/VBoxContainer/Start" to="." method="_on_start_pressed"]
+[connection signal="pressed" from="Control/VBoxContainer/Quit" to="." method="_on_quit_pressed"]
