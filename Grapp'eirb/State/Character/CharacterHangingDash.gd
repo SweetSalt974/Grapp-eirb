@@ -1,4 +1,5 @@
 extends State
+
 class_name CharacterHangingDash
 
 @export var player : CharacterBody2D

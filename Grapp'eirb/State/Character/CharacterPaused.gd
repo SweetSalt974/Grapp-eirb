@@ -1,4 +1,5 @@
 extends State
+
 class_name CharacterPaused
 
 @export var player : CharacterBody2D

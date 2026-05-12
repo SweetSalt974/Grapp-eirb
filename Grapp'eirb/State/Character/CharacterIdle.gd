@@ -1,5 +1,6 @@
 extends State
 class_name CharacterIdle
+
 ## State of a [CharacterBody2D] who is on the ground.
 ##
 ## Implements the movement on the ground and handle all the sprite work for it.
@@ -8,6 +9,7 @@ class_name CharacterIdle
 @export var player : CharacterBody2D
 @onready var run_effect : PackedScene = preload("res://Grapp'eirb/Character/run_particle.tscn")
 @onready var walk : Sprite2D = player.get_node("walk")
+
 
 var run_instance : GPUParticles2D = null
 ## Implementation of [CharacterIdle]'s method 

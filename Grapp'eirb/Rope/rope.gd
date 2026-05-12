@@ -10,7 +10,7 @@ var idx : int = -1 :
 var is_last := false
 var is_first := false
 var musket : Node2D = null
-var is_connected = false
+var is_connected_rope = false
 
 func setRopes(_idx : int, _musket : Node2D) -> void:
 	self.idx = _idx
@@ -56,4 +56,4 @@ func getAngle() -> float:
 
 func connectHanging():
 	musket.hanging.connect()
-	is_connected = true
+	is_connected_rope = true

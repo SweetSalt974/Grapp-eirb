@@ -1,4 +1,5 @@
 extends State
+
 class_name CharacterHanging
 
 @export var player : CharacterBody2D
