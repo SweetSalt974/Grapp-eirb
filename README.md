@@ -32,8 +32,11 @@ While hanging you can hold **Dash Key** (space bar) to charge a dash in the mous
 ## Assets
 
 Sound effects are gathered from royalty free libraries.
+
 Music was made in Beepbox by myself.
+
 In-Game pixel art assets including character design, mountain tileset, collectibles, animation and backgrounds were created using the [Pixelorama](https://pixelorama.org/) tool.
+
 Character design was made by taking inspiration from Celeste art style.
 
 ## Credits
